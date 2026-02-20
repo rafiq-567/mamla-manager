@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import Client from '@/lib/models/Client';
+import Client from '@/lib/models/Clients';
 import { getCurrentUser } from '@/lib/auth';
 
 // GET - Single client
