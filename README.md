@@ -152,9 +152,9 @@ mamla-manager/
 ## 👨‍💻 Developer
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: (https://github.com/rafiq-567)
+- LinkedIn: (https://www.linkedin.com/in/md-rafiqul-akhter-b39610379/)
+- Email: mdrafiqulakhter0@gmail.com
 
 ## 📄 License
 
