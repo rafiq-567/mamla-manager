@@ -22,28 +22,31 @@ if (!global.mongoose) {
 }
 
 async function connectDB(): Promise<typeof mongoose> {
-  if (cached.conn) {
+  if (cached.conn && mongoose.connection.readyState === 1) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    const opts = {
+    cached.promise = mongoose.connect(MONGODB_URI, {
       bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 10000,
+      family: 4, // Force IPv4, fixes slow DNS on Vercel
+    }).then((mongoose) => {
       console.log('✅ MongoDB connected successfully');
       return mongoose;
     });
   }
 
- try {
-  cached.conn = await cached.promise;
-} catch (e) {
-  console.error("MongoDB Connection Error:", e);
-  cached.promise = null;
-  throw e;
-}
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    console.error('MongoDB Connection Error:', e);
+    cached.promise = null;
+    cached.conn = null;
+    throw e;
+  }
 
   return cached.conn;
 }
