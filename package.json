@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed:cases": "node scripts/seed-cases.js",
+    "seed:clients": "node scripts/seed-clients.js",
+    "seed": "npm run seed:cases && npm run seed:clients"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

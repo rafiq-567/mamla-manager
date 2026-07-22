@@ -80,9 +80,9 @@ export default function CaseDetailPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Case not found</p>
-        <Link href="/dashboard/cases">
-          <Button className="mt-4">Back to Cases</Button>
-        </Link>
+        <Button asChild className="mt-4">
+          <Link href="/dashboard/cases">Back to Cases</Link>
+        </Button>
       </div>
     );
   }
@@ -92,11 +92,11 @@ export default function CaseDetailPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-4">
-          <Link href="/dashboard/cases">
-            <Button variant="ghost" size="icon">
+          <Button asChild variant="ghost" size="icon">
+            <Link href="/dashboard/cases">
               <ArrowLeft className="h-5 w-5" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
           <div>
             <div className="flex items-center gap-3 mb-2">
               <h1 className="text-3xl font-bold">{caseData.title}</h1>

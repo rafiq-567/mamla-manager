@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { CaseCard } from '@/components/case-card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,6 +26,7 @@ import {
 import { CaseForm } from '@/components/forms/case-form';
 
 export default function CasesPage() {
+  const router = useRouter();
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('');
   const [caseType, setCaseType] = useState('');
@@ -77,12 +79,12 @@ export default function CasesPage() {
             Manage and track all your legal cases
           </p>
         </div>
-        <Link href="/dashboard/cases/new">
-          <Button>
+        <Button asChild>
+          <Link href="/dashboard/cases/new">
             <Plus className="mr-2 h-4 w-4" />
             New Case
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
 
       {/* Filters */}
@@ -161,7 +163,7 @@ export default function CasesPage() {
           description="Try adjusting your filters or create a new case"
           action={{
             label: 'Create Case',
-            onClick: () => (window.location.href = '/dashboard/cases/new'),
+            onClick: () => router.push('/dashboard/cases/new'),
           }}
         />
       ) : (

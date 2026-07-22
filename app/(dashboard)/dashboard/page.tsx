@@ -4,6 +4,7 @@ import { StatCard } from '@/components/stat-card';
 import { CaseCard } from '@/components/case-card';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 import { useDashboard } from '@/hooks/useDashboard';
 import { useCases } from '@/hooks/useCases';
 import { LoadingSpinner } from '@/components/ui/loading';
@@ -20,6 +21,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 
 export default function DashboardPage() {
+  const router = useRouter();
   const { data: stats, isLoading: statsLoading } = useDashboard();
   const { cases, isLoading: casesLoading } = useCases({ limit: 6, sortBy: 'updatedAt' });
 
@@ -37,12 +39,12 @@ export default function DashboardPage() {
             Welcome back! Here's an overview of your cases.
           </p>
         </div>
-        <Link href="/dashboard/cases/new">
-          <Button>
+        <Button asChild>
+          <Link href="/dashboard/cases/new">
             <Plus className="mr-2 h-4 w-4" />
             New Case
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
 
       {/* Stats Grid */}
@@ -116,12 +118,12 @@ export default function DashboardPage() {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold">Recent Cases</h2>
-          <Link href="/dashboard/cases">
-            <Button variant="ghost" size="sm">
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/dashboard/cases">
               View All
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {casesLoading ? (
@@ -132,7 +134,7 @@ export default function DashboardPage() {
             description="Start by creating your first case"
             action={{
               label: 'Create Case',
-              onClick: () => (window.location.href = '/dashboard/cases/new'),
+              onClick: () => router.push('/dashboard/cases/new'),
             }}
           />
         ) : (

@@ -62,12 +62,12 @@ export function CaseCard({ case: caseData, onEdit, onDelete }: CaseCardProps) {
           </div>
 
           <div className="flex gap-2 mt-4 pt-4 border-t">
-            <Link href={`/dashboard/cases/${caseData._id}`} className="flex-1">
-              <Button variant="outline" className="w-full" size="sm">
+            <Button asChild variant="outline" className="w-full" size="sm">
+              <Link href={`/dashboard/cases/${caseData._id}`}>
                 <Eye className="h-4 w-4 mr-2" />
                 View
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             {onEdit && (
               <Button
                 variant="outline"

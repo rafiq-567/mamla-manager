@@ -40,8 +40,8 @@ export function Navbar({ onMenuClick }: NavbarProps) {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <Link href="/dashboard/notifications">
-            <Button variant="ghost" size="icon" className="relative">
+          <Button asChild variant="ghost" size="icon" className="relative">
+            <Link href="/dashboard/notifications">
               <Bell className="h-5 w-5" />
               {unreadCount > 0 && (
                 <Badge 
@@ -51,8 +51,8 @@ export function Navbar({ onMenuClick }: NavbarProps) {
                   {unreadCount}
                 </Badge>
               )}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </header>
