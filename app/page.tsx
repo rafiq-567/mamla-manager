@@ -95,19 +95,14 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Content */}
               <div className="space-y-10 relative z-10">
-                {/* Premium Badge */}
+                {/* Badge */}
                 <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-white/20 backdrop-blur-xl">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-sm font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      LIVE NOW
+                      Case Management Platform
                     </span>
                   </div>
-                  <div className="h-4 w-px bg-white/20" />
-                  <span className="text-sm font-semibold text-white">
-                    500+ Lawyers Already Using
-                  </span>
-                  <Award className="h-4 w-4 text-yellow-500" />
                 </div>
 
                 {/* Main Heading */}
@@ -127,8 +122,8 @@ export default function HomePage() {
                   </h1>
                   
                   <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-xl">
-                    The AI-powered platform that helps legal professionals manage cases 
-                    <span className="text-white font-semibold"> 10x faster</span> with intelligent automation.
+                    Streamline your practice with centralized case tracking, document management,
+                    and hearing schedules — all in one place.
                   </p>
                 </div>
 
